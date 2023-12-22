@@ -13,7 +13,6 @@ typedef struct{
 	uint8 DCM_u8Pin2;
 }DCM_cfg;
 
-
 uint8 DCM_u8CW(const DCM_cfg * Copy_pDCMcfg);
 uint8 DCM_u8CCW(const DCM_cfg * Copy_pDCMcfg);
 uint8 DCM_u8Brake(const DCM_cfg * Copy_pDCMcfg);

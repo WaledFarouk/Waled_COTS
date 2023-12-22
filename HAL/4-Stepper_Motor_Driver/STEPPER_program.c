@@ -13,7 +13,13 @@
 #include "STEPPER_interface.h"
 
 #include <util/delay.h>
-
+/**
+ * @brief This Function is used to drive the stepper motor to rotate clockwise
+ * @param Copy_pStepperCfg This parameter is struct carry the stepper motor configuration
+ * @param Angle This parameter is the angle you want the stepper motor to reach
+ * @param Direction This parameter is the rotation direction  for the stepper motor
+ * @return
+ */
 uint8 StepperRotate(const stepper_t * Copy_pStepperCfg , uint16 Angle , uint8 Direction)
 {
 	uint8 Local_u8ErrorState = OK;

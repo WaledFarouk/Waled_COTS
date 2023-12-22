@@ -16,6 +16,9 @@
 #include "CLCD_prv.h"
 #include "CLCD_cfg.h"
 
+/**
+ * @brief This function is used to send enable pulse for LCD
+ */
 static void voidSendEnablePulse(void)
 {
 	/*Send enable pulse*/
@@ -23,7 +26,10 @@ static void voidSendEnablePulse(void)
 	_delay_ms(2);
 	DIO_u8SetPinValue(CLCD_CTRL_PORT,CLCD_E_PIN,DIO_u8PIN_LOW);
 }
-
+/**
+ * @brief This function is used to set 4 bit for LCD
+ * @param Copy_u8Nipple
+ */
 static void voidSetLCDHalfDataPort(uint8 Copy_u8Nipple)
 {
 	DIO_u8SetPinValue(CLCD_DATA_PORT,CLCD_D4_PIN,GET_BIT(Copy_u8Nipple,0));
@@ -31,7 +37,10 @@ static void voidSetLCDHalfDataPort(uint8 Copy_u8Nipple)
 	DIO_u8SetPinValue(CLCD_DATA_PORT,CLCD_D6_PIN,GET_BIT(Copy_u8Nipple,2));
 	DIO_u8SetPinValue(CLCD_DATA_PORT,CLCD_D7_PIN,GET_BIT(Copy_u8Nipple,3));
 }
-
+/**
+ * @brief This function is used to send in cmd
+ * @param Copy_u8Cmd
+ */
 void CLCD_voidSendCmd(uint8 Copy_u8Cmd)
 {
 	/*Set RS pin to low for command*/
@@ -57,7 +66,10 @@ void CLCD_voidSendCmd(uint8 Copy_u8Cmd)
 	voidSendEnablePulse();
 #endif
 }
-
+/**
+ * @brief This function is used to send data
+ * @param Copy_u8Data
+ */
 void CLCD_voidSendData(uint8 Copy_u8Data)
 {
 	/*Set RS pin to high for Data*/
@@ -84,7 +96,9 @@ void CLCD_voidSendData(uint8 Copy_u8Data)
 #endif
 
 }
-
+/**
+ * @brief This function is used to initial LCD driver
+ */
 void CLCD_voidInit(void)
 {
 	/*wait for more than 30ms after power on*/
@@ -109,7 +123,11 @@ void CLCD_voidInit(void)
 	/*Display clear*/
 	CLCD_voidSendCmd(1);
 }
-
+/**
+ * @brief This function is used to send string
+ * @param Copy_chString
+ * @return Error state
+ */
 uint8 CLCD_u8SendString(const char* Copy_chString)
 {
 	uint8 Local_u8ErrorState= OK;
@@ -128,7 +146,10 @@ uint8 CLCD_u8SendString(const char* Copy_chString)
 	}
 	return Local_u8ErrorState;
 }
-
+/**
+ * @brief This function is used to send number
+ * @param Copy_s32Number
+ */
 void CLCD_voidSendNumber(sint32 Copy_s32Number)
 {
 	char Local_chNumberArr[10];
@@ -158,7 +179,11 @@ void CLCD_voidSendNumber(sint32 Copy_s32Number)
 		CLCD_voidSendData(Local_chNumberArr[Local_s8Counter2]);
 	}
 }
-
+/**
+ * @brief This function is used to move in LCD
+ * @param Copy_u8XPos This parameter is x position from 0 to 15
+ * @param Copy_u8YPos This parameter is y position from 0 to 15
+ */
 void CLCD_voidGoToXY(uint8 Copy_u8XPos, uint8 Copy_u8YPos)
 {
 	uint8 Local_u8DDRamAdd;
@@ -175,7 +200,13 @@ void CLCD_voidGoToXY(uint8 Copy_u8XPos, uint8 Copy_u8YPos)
 
 	CLCD_voidSendCmd(Local_u8DDRamAdd);
 }
-
+/**
+ * @brief This function is used to send special character on LCD
+ * @param Copy_pu8Pattern
+ * @param Copy_u8PatternNum
+ * @param Copy_u8XPos Copy_u8XPos This parameter is x position from 0 to 15
+ * @param Copy_u8YPos This parameter is y position from 0 to 15
+ */
 void CLCD_voidSendSpecialCharacter(uint8 *Copy_pu8Pattern, uint8 Copy_u8PatternNum, uint8 Copy_u8XPos, uint8 Copy_u8YPos )
 {
 	uint8 Local_u8CGRAMAdd= Copy_u8PatternNum * 8u;

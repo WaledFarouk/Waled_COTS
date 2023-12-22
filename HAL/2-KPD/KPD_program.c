@@ -15,6 +15,10 @@
 #include "KPD_interface.h"
 #include "KPD_cfg.h"
 
+/**
+ * @brief This Function is used to determine which key pressed from 1 to 16 keys
+ * @return Error state
+ */
 uint8 KPD_u8GetPressedKey(void)
 {
 	uint8 Local_u8PressedKey=KPd_u8NO_PRESSED_KEY_VAL;

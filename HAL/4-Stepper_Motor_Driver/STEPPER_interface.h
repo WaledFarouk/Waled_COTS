@@ -2,7 +2,7 @@
  * STEPPER_interface.h
  *
  *  Created on: Dec 21, 2023
- *      Author: Waled Farouk
+ *      Author: The Engineer
  */
 #ifndef STEPPER_INTERFACE_H_
 #define STEPPER_INTERFACE_H_

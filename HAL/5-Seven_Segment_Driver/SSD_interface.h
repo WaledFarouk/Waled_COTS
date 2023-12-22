@@ -2,7 +2,7 @@
  * SSD_interface.h
  *
  *  Created on: Nov 25, 2023
- *      Author: Waled Farouk
+ *      Author: The Engineer
  */
 #ifndef SSD_INTERFACE_H_
 #define SSD_INTERFACE_H_
