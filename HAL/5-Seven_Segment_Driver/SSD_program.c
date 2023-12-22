@@ -2,7 +2,7 @@
  * SSD_program.c
  *
  *  Created on: Nov 25, 2023
- *      Author: Waled Farouk
+ *      Author: The Engineer
  */
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
@@ -13,6 +13,13 @@
 #include "SSD_interface.h"
 #include "SSD_prv.h"
 
+/**
+ * @brief This Function is used to set number on seven segment
+ * @param Type This parameter is used to determine types for seven segment
+ * @param Port  This parameter is used to choose the required port among DIO_u8PORTA,DIO_u8PORTB,DIO_u8PORTC,DIO_u8PORTD
+ * @param LEDAPin This parameter is used to determine the start of connection of seven segment SSD_StartPin0 or SSD_StartPin1
+ * @param number The number you want to appear on Seven Segment
+ */
 void SSD_SetNumber(uint8 Type, uint8 Port, uint8 LEDAPin, uint8 number)
 {
 	uint8 seg[]={	0b0111111, // 0
@@ -82,6 +89,12 @@ void SSD_SetNumber(uint8 Type, uint8 Port, uint8 LEDAPin, uint8 number)
 		}
 	}
 }
+/**
+ * @brief This Function is used to on seven segment
+ * @param Type This parameter is used to determine types for seven segment
+ * @param Port This parameter is used to choose the required port among DIO_u8PORTA,DIO_u8PORTB,DIO_u8PORTC,DIO_u8PORTD
+ * @param Pin This parameter is used to choose the required pin from PIN0 to PIN7 to connect com in seven segment
+ */
 void SSD_On(uint8 Type, uint8 Port, uint8 Pin)
 {
 	if(Type == Anode)
@@ -107,6 +120,12 @@ void SSD_On(uint8 Type, uint8 Port, uint8 Pin)
 	}
 
 }
+/**
+ * @brief This Function is used to off seven segment
+ * @param Type This parameter is used to determine types for seven segment
+ * @param Port This parameter is used to choose the required port among DIO_u8PORTA,DIO_u8PORTB,DIO_u8PORTC,DIO_u8PORTD
+ * @param Pin This parameter is used to choose the required pin from PIN0 to PIN7 to connect com in seven segment
+ */
 void SSD_Off(uint8 Type, uint8 Port, uint8 Pin)
 {
 	if(Type == Cathode)
