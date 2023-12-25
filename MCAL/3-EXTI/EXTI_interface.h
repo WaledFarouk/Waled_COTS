@@ -7,9 +7,9 @@
 #ifndef EXTI_INTERFACE_H_
 #define EXTI_INTERFACE_H_
 
-#define EXTI_u8INT0					1u
-#define EXTI_u8INT1					2u
-#define EXTI_u8INT2					3u
+#define EXTI_u8INT0					0
+#define EXTI_u8INT1					1
+#define EXTI_u8INT2					2
 
 #define EXTI_u8RISING_EDGE 			4u
 #define EXTI_u8FALLING_EDGE 		5u
@@ -23,6 +23,8 @@ void EXTI_voidInitInt2(void);
 uint8 EXTI_u8SetSenseControl(uint8 Copy_u8IntNum,uint8 Copy_u8SenceControl);
 uint8 EXTI_u8InterruptEnable(uint8 Copy_u8IntNum);
 uint8 EXTI_u8InterruptDisable(uint8 Copy_u8IntNum);
+
+uint8 EXTI_u8SetCallBack(uint8 Copy_u8IntNum, void (*Copy_pfFunPtr)(void));
 
 
 #endif
