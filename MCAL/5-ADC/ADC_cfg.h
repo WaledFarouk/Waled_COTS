@@ -18,7 +18,7 @@
  * @details configure the required ADC resolution, option are:	1-EIGHT_BITS
  * 																2-TEN_BITS
  */
-#define ADC_u8RESOLUTION			EIGHT_BITS
+#define ADC_u8RESOLUTION			TEN_BITS
 
 /**
  * @details configure the interrupt enable configuration, option are:	1-ENABLED
@@ -31,7 +31,7 @@
  */
 #define ADC_u8PRESCALER_VAL			DIVISION_BY_128
 
-
+#define ADC_u32TIMEOUT  			50000u
 
 
 
