@@ -25,8 +25,8 @@
 #define DIVISION_BY_64				6u
 #define DIVISION_BY_128				7u
 
-
-
+#define SINGLE_CONV_ASYNCH			0u
+#define CHAIN_CONV_ASYNCH			1u
 
 
 
